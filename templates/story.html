@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Story</title>
+  </head>
+  <body>
+    {% for data in datas %}
+    <p>{{data.data}}</p>
+    {% endfor %}
+    <a href="{{url_for('blog')}}">Thêm xý zì nào!!</a>
+  </body>
+</html>

@@ -4,6 +4,8 @@ from mongoengine import *
 app = Flask(__name__)
 app.secret_key = 'a-super-secret-key'
 mlab.connect()
+class Data(Document):
+    data = StringField()
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -21,6 +23,19 @@ def login():
 @app.route('/index')
 def index():
     return render_template('index.html')
-
+@app.route('/blog', methods =['GET', 'POST'])
+def blog():
+    if request.method == 'GET':
+        return render_template('blog.html')
+    if request.method == 'POST':
+        form = request.form
+        data = form['data']
+        new_data = Data(data=data)
+        new_data.save()
+        return redirect(url_for('story'))
+@app.route('/story')
+def story():
+    datas = Data.objects()
+    return render_template('story.html', datas=datas)
 if __name__ == '__main__':
   app.run(debug=True)
