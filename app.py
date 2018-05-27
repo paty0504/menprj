@@ -36,6 +36,7 @@ def blog():
 @app.route('/story')
 def story():
     datas = Data.objects()
+    
     return render_template('story.html', datas=datas)
 if __name__ == '__main__':
   app.run(debug=True)

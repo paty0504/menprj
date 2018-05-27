@@ -2,13 +2,39 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>BLOG</title>
+      {% include 'meta-data.html' %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="../static/css/style.css">
+    <title>ADD NEW</title>
   </head>
   <body>
-    <form method="post">
-      <label>write smt</label>
-      <input type="text" name="data" placeholder="Viết một xý xôi!">
-      <input type="submit" name="Gửi thui!" >
-    </form>
+    <div class="w3-top">
+      <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s3">
+          <a href="{{url_for('index')}}" class="w3-button w3-block w3-black">HOME</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="{{url_for('index')}}" class="w3-button w3-block w3-black">OUR STORY</a>
+        </div>
+        <div class="w3-col s3">
+          <a href="{{url_for('blog')}}" class="w3-button w3-block w3-black">ADD NEW</a>
+        </div>
+      </div>
+    </div>
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form"  method="POST">
+          <textarea name="data" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Viết xý xôi!"></textarea>
+
+          <button class="mt-4" type="submit" >Đăng thui!</button>
+
+        </form>
+      </div>
+    </div>
+
   </body>
 </html>
